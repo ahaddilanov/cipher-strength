@@ -1,6 +1,6 @@
 import string
 import math
-
+import hashlib
 
 def analyze_character_types(password):
     has_lower = any(char in string.ascii_lowercase for char in password)
@@ -50,7 +50,16 @@ def rate_strength(entropy):
         return "Very Strong"
 
 
+def check_leaked(password, leaked_file="leaked_hashes.txt"):
+    password_hash = hashlib.sha256(password.encode()).hexdigest()
 
+    with open(leaked_file, "r") as f:
+        leaked_hashes = f.read().splitlines()
+
+    if password_hash in leaked_hashes:
+        return True
+    else:
+        return False
 
 #   MENU
 
@@ -67,5 +76,8 @@ def menu():
 
         print(f"Entropy: {entropy_score:.2f} bits")
         print(f"Strength: {strength}")
+        is_leaked = check_leaked(password)
+        if is_leaked:
+            print("⚠ This password appears in a known leaked password list!")
 
 menu()
