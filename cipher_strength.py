@@ -40,3 +40,17 @@ def calculate_entropy(password):
 
 entropy_score = calculate_entropy(test_password)
 print(f"Entropy: {entropy_score:.2f} bits")
+
+
+def rate_strength(entropy):
+    if entropy < 28:
+        return "Weak"
+    elif entropy<36:
+        return "Medium"
+    elif entropy < 60:
+        return "Strong"
+    else:
+        return "Very Strong"
+
+strength = rate_strength(entropy_score)
+print(f"Strength: {strength}")
