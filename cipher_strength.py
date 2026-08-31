@@ -14,9 +14,7 @@ def analyze_character_types(password):
         "digits": has_digit,
         "symbols": has_symbol
     }
-test_password = "MyPass123!"
-result = analyze_character_types(test_password)
-print(result)
+
 
 
 def calculate_entropy(password):
@@ -38,8 +36,7 @@ def calculate_entropy(password):
     entropy = len(password) * math.log2(pool_size)  #i used the main formula
     return entropy
 
-entropy_score = calculate_entropy(test_password)
-print(f"Entropy: {entropy_score:.2f} bits")
+
 
 
 def rate_strength(entropy):
@@ -52,5 +49,23 @@ def rate_strength(entropy):
     else:
         return "Very Strong"
 
-strength = rate_strength(entropy_score)
-print(f"Strength: {strength}")
+
+
+
+#   MENU
+
+def menu():
+    while True:
+        password = input("\nEnter a password to check (or 'quit to exit'): ")
+
+        if password.lower() == "quit":
+            print("Goodbye!")
+            break
+
+        entropy_score= calculate_entropy(password)
+        strength = rate_strength(entropy_score)
+
+        print(f"Entropy: {entropy_score:.2f} bits")
+        print(f"Strength: {strength}")
+
+menu()
