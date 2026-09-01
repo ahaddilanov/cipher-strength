@@ -4,6 +4,11 @@ A Python tool that measures real password strength using entropy — not simplis
 
 ![Python](https://img.shields.io/badge/Python-3.14-blue) ![Tkinter](https://img.shields.io/badge/GUI-Tkinter-purple) ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
+<img width="500" alt="CipherStrength showing a strong password result" src="https://github.com/user-attachments/assets/e63cd6ca-14c0-4bcf-9f28-0f53bde0e83f" />
+<img width="500" alt="CipherStrength flagging a known leaked password" src="https://github.com/user-attachments/assets/87e28e99-cf28-471e-9002-914dad9b7ef4" />
+
+*Left: checking a strong, unique password. Right: the tool correctly flags "monkey" as a known leaked password.*
+
 ---
 
 ## 📖 What It Does
